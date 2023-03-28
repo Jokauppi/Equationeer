@@ -140,7 +140,10 @@ module.exports = {
       transparent: colors.transparent,
       black: colors.black,
       white: colors.white,
-      slate: colors.slate,
+      slate: {
+        ...colors.slate,
+        150: '#e9eef4',
+      },
       gray: colors.gray,
       zinc: colors.zinc,
       neutral: colors.neutral,
@@ -968,5 +971,7 @@ module.exports = {
       50: '50',
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+  ],
 }
