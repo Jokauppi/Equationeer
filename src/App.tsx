@@ -30,9 +30,9 @@ function App() {
           </Box>
           <Box fit>
             <div className="flex flex-row justify-between content-center">
-              <div className="text-white">Title</div>
+              <div className="text-black dark:text-white">Title</div>
               <div className="flex flex-row justify-between content-center gap-2">
-                <FileCog size={24} />
+                <FileCog size={24} color="dodgerblue" />
                 <Settings size={24} className="block md:hidden" />
                 <button
                   className="block md:hidden"
@@ -54,7 +54,7 @@ function App() {
           </Box>
           <Box className="overflow-hidden max-h-56 md:max-h-full">
             <div className="flex flex-row justify-between content-center">
-              <div className="text-white">Symbols</div>
+              <div className="text-black dark:text-white">Symbols</div>
               <ChevronDown size={24} />
             </div>
             <div className="h-full mt-2 overflow-y-auto scrollbar-none">
@@ -78,7 +78,7 @@ function App() {
           </Box>
           <Box className="h-fit md:h-full">
             <div className="flex flex-row justify-between content-center">
-              <div className="text-white">Macros</div>
+              <div className="text-black dark:text-white">Macros</div>
               <ChevronDown size={24} />
             </div>
           </Box>
