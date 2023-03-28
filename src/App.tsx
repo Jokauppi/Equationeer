@@ -8,7 +8,7 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <div className={`App flex flex-row justify-center w-screen h-screen font-sans text-black ${darkMode ? 'dark bg-black' : 'bg-slate-300'}`}>
+    <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black ${darkMode ? 'dark bg-black' : 'bg-slate-300'}`}>
       <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl shadow-2xl">
         <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full h-fit md:h-full md:max-w-lg">
           <Box fit className="hidden md:block">
