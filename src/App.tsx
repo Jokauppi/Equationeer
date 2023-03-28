@@ -13,7 +13,7 @@ function App() {
         <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full h-fit md:h-full md:max-w-lg">
           <Box fit className="hidden md:block">
             <div className="flex flex-row justify-between content-center gap-x-32">
-              <p className="font-serif text-xl text-black dark:text-white">WYSIWYTeX</p>
+              <p className="font-serif text-xl text-black dark:text-white">EQUATIONEER</p>
               <button
                 type="button"
                 onClick={() => {
