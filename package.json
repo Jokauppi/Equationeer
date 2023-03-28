@@ -11,8 +11,11 @@
     "lint:fix": "eslint src/**/*.ts{,x} --fix"
   },
   "dependencies": {
+    "@fontsource/jetbrains-mono": "^4.5.12",
+    "lucide-react": "^0.128.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^1.10.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
