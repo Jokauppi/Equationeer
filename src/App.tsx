@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ViteLogo from './assets/vite.svg';
 import Box from './components/Box';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
   return (
-    <div className="App w-screen h-screen font-sans text-black bg-slate-150">
-      <div className="flex flex-row justify-between gap-x-4 p-4 w-full h-full">
+    <div className={`App w-screen h-screen font-sans text-black bg-slate-150 ${darkMode && 'dark'}`}>
+      <div className="flex flex-row justify-between gap-x-4 p-4 w-full h-full dark:bg-neutral-900">
         <div className="flex flex-col gap-y-4 w-96 h-full">
           <Box fit>
-            <p className="font-bold text-xl text-black">WYMeX Notes</p>
+            <div className="flex flex-row justify-between content-end">
+              <p className="font-bold text-xl text-black dark:text-white">WYMeX</p>
+              <input
+                type="button"
+                onClick={() => {
+                  setDarkMode(!darkMode);
+                }}
+                value={darkMode ? 'Light Mode' : 'Dark Mode'}
+              />
+            </div>
           </Box>
           <div className="h-full overflow-hidden rounded-xl">
             <div className="flex flex-col gap-y-4 h-full overflow-y-auto scrollbar-none">
@@ -91,7 +102,7 @@ function App() {
           </Box>
         </div>
         <Box additionalClassNames="flex flex-col items-center gap-y-8 p-24">
-          <h1 className="text-3xl text-black">Title</h1>
+          <h1 className="text-3xl text-black dark:text-white">Title</h1>
           <p>Author</p>
         </Box>
       </div>
