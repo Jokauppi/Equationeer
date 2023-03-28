@@ -21,16 +21,16 @@ function App() {
                 }}
               >
                 {darkMode ? (
-                  <Sun size={24} />
+                  <Sun size={24} color="gold" />
                 ) : (
-                  <Moon size={24} />
+                  <Moon size={24} color="mediumslateblue" />
                 )}
               </button>
             </div>
           </Box>
           <Box fit>
             <div className="flex flex-row justify-between content-center">
-              <div>Title</div>
+              <div className="text-white">Title</div>
               <div className="flex flex-row justify-between content-center gap-2">
                 <FileCog size={24} />
                 <Settings size={24} className="block md:hidden" />
@@ -42,9 +42,9 @@ function App() {
                   }}
                 >
                   {darkMode ? (
-                    <Sun size={24} />
+                    <Sun size={24} color="gold" />
                   ) : (
-                    <Moon size={24} />
+                    <Moon size={24} color="mediumslateblue" />
                   )}
                 </button>
                 <ChevronDown size={24} />
@@ -54,7 +54,7 @@ function App() {
           </Box>
           <Box className="overflow-hidden max-h-56 md:max-h-full">
             <div className="flex flex-row justify-between content-center">
-              <div>Symbols</div>
+              <div className="text-white">Symbols</div>
               <ChevronDown size={24} />
             </div>
             <div className="h-full mt-2 overflow-y-auto scrollbar-none">
@@ -78,15 +78,15 @@ function App() {
           </Box>
           <Box className="h-fit md:h-full">
             <div className="flex flex-row justify-between content-center">
-              <div>Macros</div>
+              <div className="text-white">Macros</div>
               <ChevronDown size={24} />
             </div>
           </Box>
           <Box fit className="hidden md:block">
             <div className="flex flex-row justify-between gap-x-4">
               <div className="flex flex-row content-center gap-x-2">
-                <User size={24} />
-                <p>Username</p>
+                <User size={24} color="dodgerblue" />
+                <p>Not Logged In</p>
               </div>
 
               <Settings size={24} />
