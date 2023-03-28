@@ -7,7 +7,7 @@ type BoxProps = {
 };
 
 export default function Box({ children, additionalClassNames, fit = false }: BoxProps) {
-  const boxDefaultStyle = 'bg-white rounded-xl p-4 w-full';
+  const boxDefaultStyle = 'bg-white rounded-xl p-4 w-full text-slate-600';
   const hSize = fit ? 'h-fit' : 'h-full';
 
   return (

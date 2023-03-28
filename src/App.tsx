@@ -8,7 +8,7 @@ function App() {
       <div className="flex flex-row justify-between gap-x-4 p-4 w-full h-full">
         <div className="flex flex-col gap-y-4 w-96 h-full">
           <Box fit>
-            <p className="font-bold text-xl">WYMeX Notes</p>
+            <p className="font-bold text-xl text-black">WYMeX Notes</p>
           </Box>
           <div className="h-full overflow-hidden rounded-xl">
             <div className="flex flex-col gap-y-4 h-full overflow-y-auto scrollbar-none">
@@ -90,9 +90,9 @@ function App() {
             </a>
           </Box>
         </div>
-        <Box>
-          <h1 className="text-3xl">Test</h1>
-          <p>lorem ipsum dolor sit amet</p>
+        <Box additionalClassNames="flex flex-col items-center gap-y-8 p-24">
+          <h1 className="text-3xl text-black">Title</h1>
+          <p>Author</p>
         </Box>
       </div>
     </div>
