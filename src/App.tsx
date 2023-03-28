@@ -116,8 +116,8 @@ function App() {
               <Box fit>
                 <p>Vivamus feugiat id diam sit amet vulputate. Duis non lacinia sapien. Nunc porttitor luctus fringilla. Sed sit amet vestibulum nibh, et hendrerit odio. Aenean eu sollicitudin purus. Ut vitae magna et leo porttitor efficitur. Vivamus efficitur mi arcu, vel consequat elit rhoncus vitae. Etiam et erat enim. Suspendisse potenti.</p>
               </Box>
-              <Box fit>
-                <p className="text-neutral-400">Write Here...</p>
+              <Box>
+                <textarea placeholder="Write Here..." className="text-neutral-400 w-full h-full bg-white dark:bg-neutral-800 focus:outline-none" />
               </Box>
             </div>
           </div>
