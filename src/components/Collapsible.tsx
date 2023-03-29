@@ -30,7 +30,7 @@ function Collapsible({
         }}
       >
         <div className="flex flex-row justify-between content-center p-4">
-          <div className="flex flex-row justify-start content-center gap-x-2">
+          <div className="flex flex-row justify-start content-center gap-x-3">
             {logo}
             <div className="text-black dark:text-white font-medium">
               {title}

@@ -146,7 +146,10 @@ module.exports = {
       },
       gray: colors.gray,
       zinc: colors.zinc,
-      neutral: colors.neutral,
+      neutral: {
+        ...colors.neutral,
+        950: '#0a0a0a',
+      },
       stone: colors.stone,
       red: colors.red,
       orange: colors.orange,
