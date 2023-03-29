@@ -6,7 +6,7 @@ import Box from './components/Box';
 import Collapsible from './components/Collapsible';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(window.matchMedia('(prefers-color-scheme:dark)').matches ?? true);
   const [filesOpen, setFilesOpen] = useState(true);
   const [symbolsOpen, setSymbolsOpen] = useState(false);
   const [macrosOpen, setMacrosOpen] = useState(true);
