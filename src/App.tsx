@@ -10,6 +10,7 @@ function App() {
   const [filesOpen, setFilesOpen] = useState(true);
   const [symbolsOpen, setSymbolsOpen] = useState(false);
   const [macrosOpen, setMacrosOpen] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
     <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-none ${darkMode ? 'dark bg-neutral-950' : 'bg-slate-300'}`}>
@@ -95,16 +96,21 @@ function App() {
               <div className="pb-4">macro</div>
             </Collapsible>
           </div>
-          <Box fit className="hidden md:block">
-            <div className="flex flex-row justify-between gap-x-4">
-              <div className="flex flex-row content-center gap-x-2">
-                <User size={24} color="dodgerblue" />
-                <p>Not Logged In</p>
-              </div>
-
-              <Settings size={24} />
-            </div>
-          </Box>
+          <Collapsible
+            logo={<User size={24} color="dodgerblue" />}
+            title="User"
+            open={settingsOpen}
+            setOpen={setSettingsOpen}
+            openClass="h-fit"
+            commonClass="hidden md:flex"
+            openAbove
+            openSymbols={[
+              <Settings size={24} className="rotate-90" />,
+              <Settings size={24} />,
+            ]}
+          >
+            <div className="pt-4">Settings</div>
+          </Collapsible>
         </div>
         <div className="overflow-hidden rounded-lg">
           <div className="h-full font-serif overflow-y-auto md:scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">

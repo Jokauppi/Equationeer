@@ -13,16 +13,28 @@ type CollapsibleProps = {
   commonClass?: string;
   logo?: React.ReactNode;
   buttons?: React.ReactNode | React.ReactNode[];
+  openAbove?: boolean;
+  openSymbols?: React.ReactNode[];
 };
 
 function Collapsible({
-  title, open, setOpen, children, openClass, closedClass, commonClass, logo, buttons,
+  title,
+  open,
+  setOpen,
+  children,
+  openClass,
+  closedClass,
+  commonClass,
+  logo,
+  buttons,
+  openAbove = false,
+  openSymbols = [<ChevronUp size={24} />, <ChevronDown size={24} />],
 }: CollapsibleProps) {
   const openClassName = `h-full ${openClass}`;
   const closedClassName = `h-fit shrink-0 ${closedClass}`;
 
   return (
-    <Box className={twMerge(`flex flex-col p-0 ${commonClass} ${open ? openClassName : closedClassName}`)}>
+    <Box className={twMerge(`flex ${openAbove ? 'flex-col-reverse' : 'flex-col'} p-0 ${commonClass} ${open ? openClassName : closedClassName}`)}>
       <button
         type="button"
         onClick={() => {
@@ -48,7 +60,7 @@ function Collapsible({
             >
               {buttons}
             </div>
-            {open ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+            {open ? openSymbols[0] : openSymbols[1]}
           </div>
         </div>
       </button>
