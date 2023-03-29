@@ -1,39 +1,46 @@
 import React, { useState } from 'react';
 import {
-  Sun, Moon, User, Settings, FileCog, ChevronDown,
+  Sun, Moon, User, Settings, FileCog,
 } from 'lucide-react';
 import Box from './components/Box';
+import Collapsible from './components/Collapsible';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+  const [filesOpen, setFilesOpen] = useState(true);
+  const [symbolsOpen, setSymbolsOpen] = useState(false);
+  const [macrosOpen, setMacrosOpen] = useState(true);
 
   return (
     <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-none ${darkMode ? 'dark bg-black' : 'bg-slate-300'}`}>
       <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl shadow-2xl">
-        <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full h-fit md:h-full md:max-w-lg">
-          <Box fit className="hidden md:block">
-            <div className="flex flex-row justify-between content-center gap-x-32">
-              <p className="font-serif text-xl text-black dark:text-white">EQUΛTIONEER</p>
-              <button
-                type="button"
-                onClick={() => {
-                  setDarkMode(!darkMode);
-                }}
-              >
-                {darkMode ? (
-                  <Sun size={24} color="gold" />
-                ) : (
-                  <Moon size={24} color="mediumslateblue" />
-                )}
-              </button>
-            </div>
-          </Box>
-          <Box fit>
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Title</div>
-              <div className="flex flex-row justify-between content-center gap-2">
-                <FileCog size={24} color="dodgerblue" />
-                <Settings size={24} className="block md:hidden" />
+        <div className="flex flex-col justify-end md:justify-between gap-y-4 w-full md:h-full md:max-w-lg">
+          <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
+
+            <Box fit className="hidden md:block">
+              <div className="flex flex-row justify-start content-center gap-x-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDarkMode(!darkMode);
+                  }}
+                >
+                  {darkMode ? (
+                    <Sun size={24} color="#facc15" />
+                  ) : (
+                    <Moon size={24} color="black" />
+                  )}
+                </button>
+                <p className="font-serif text-xl text-black dark:text-yellow-400">EQUΛTIONEER</p>
+              </div>
+            </Box>
+            <Collapsible
+              title="Files"
+              open={filesOpen}
+              setOpen={setFilesOpen}
+              buttons={[
+                <FileCog size={24} color="dodgerblue" />,
+                <Settings size={24} className="block md:hidden" />,
                 <button
                   className="block md:hidden"
                   type="button"
@@ -46,42 +53,45 @@ function App() {
                   ) : (
                     <Moon size={24} color="mediumslateblue" />
                   )}
-                </button>
-                <ChevronDown size={24} />
+                </button>,
+              ]}
+            >
+              <div className="pb-4">test</div>
+            </Collapsible>
+            <Collapsible
+              title="Symbols"
+              open={symbolsOpen}
+              setOpen={setSymbolsOpen}
+              openClass="max-h-56 md:max-h-full"
+              commonClass="overflow-hidden"
+            >
+              <div className="h-full mt-2 overflow-y-auto scrollbar-none">
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
               </div>
-
-            </div>
-          </Box>
-          <Box className="overflow-hidden max-h-56 md:max-h-full">
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Symbols</div>
-              <ChevronDown size={24} />
-            </div>
-            <div className="h-full mt-2 overflow-y-auto scrollbar-none">
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-            </div>
-          </Box>
-          <Box className="h-fit md:h-full">
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Macros</div>
-              <ChevronDown size={24} />
-            </div>
-          </Box>
+            </Collapsible>
+            <Collapsible
+              title="Macros"
+              open={macrosOpen}
+              setOpen={setMacrosOpen}
+            >
+              <div className="pb-4">macro</div>
+            </Collapsible>
+          </div>
           <Box fit className="hidden md:block">
             <div className="flex flex-row justify-between gap-x-4">
               <div className="flex flex-row content-center gap-x-2">
