@@ -13,8 +13,8 @@ function App() {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-none ${darkMode ? 'dark bg-neutral-950' : 'bg-slate-300'}`}>
-      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl shadow-2xl">
+    <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-pan-down ${darkMode ? 'dark bg-neutral-950' : 'bg-slate-300'}`}>
+      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl md:shadow-2xl">
         <div className="flex flex-col justify-end md:justify-between gap-y-4 w-full md:h-full md:max-w-lg">
           <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
 
@@ -41,7 +41,7 @@ function App() {
               open={filesOpen}
               setOpen={setFilesOpen}
               buttons={[
-                <FileCog size={24} color="dodgerblue" className="ml-32" />,
+                <FileCog size={24} color="dodgerblue" />,
                 <Settings size={24} className="block md:hidden" />,
                 <button
                   className="block md:hidden"
@@ -69,16 +69,6 @@ function App() {
               commonClass="overflow-hidden"
             >
               <div className="h-full mt-2 overflow-y-auto scrollbar-none">
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
-                <div>Test</div>
                 <div>Test</div>
                 <div>Test</div>
                 <div>Test</div>
@@ -113,7 +103,7 @@ function App() {
           </Collapsible>
         </div>
         <div className="overflow-hidden rounded-lg">
-          <div className="h-full font-serif overflow-y-auto md:scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
+          <div className="h-full font-serif overflow-y-auto scrollbar-none md:scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
             <div className="h-full flex flex-col items-center gap-y-4">
               <Box fit className="flex flex-col items-center">
                 <h1 className="text-3xl text-black dark:text-white">Title</h1>
@@ -135,8 +125,8 @@ function App() {
               <Box fit>
                 <p>Vivamus feugiat id diam sit amet vulputate. Duis non lacinia sapien. Nunc porttitor luctus fringilla. Sed sit amet vestibulum nibh, et hendrerit odio. Aenean eu sollicitudin purus. Ut vitae magna et leo porttitor efficitur. Vivamus efficitur mi arcu, vel consequat elit rhoncus vitae. Etiam et erat enim. Suspendisse potenti.</p>
               </Box>
-              <Box>
-                <textarea placeholder="Write Here..." className="text-neutral-400 w-full h-full bg-white dark:bg-neutral-800 focus:outline-none" />
+              <Box fit>
+                <textarea placeholder="Write Here..." className="text-neutral-400 w-full h-fit bg-white dark:bg-neutral-800 focus:outline-none" />
               </Box>
             </div>
           </div>
