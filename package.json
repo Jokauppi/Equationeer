@@ -1,7 +1,7 @@
 {
-  "name": "wymex",
+  "name": "equationeer",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
@@ -15,6 +15,7 @@
     "lucide-react": "^0.128.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive": "^9.0.2",
     "tailwind-merge": "^1.10.0"
   },
   "devDependencies": {

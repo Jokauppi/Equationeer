@@ -1,39 +1,48 @@
 import React, { useState } from 'react';
 import {
-  Sun, Moon, User, Settings, FileCog, ChevronDown,
+  Sun, Moon, User, Settings, FileCog, Command, CurlyBraces, File,
 } from 'lucide-react';
 import Box from './components/Box';
+import Collapsible from './components/Collapsible';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(window.matchMedia('(prefers-color-scheme:dark)').matches ?? true);
+  const [filesOpen, setFilesOpen] = useState(true);
+  const [symbolsOpen, setSymbolsOpen] = useState(false);
+  const [macrosOpen, setMacrosOpen] = useState(true);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black ${darkMode ? 'dark bg-black' : 'bg-slate-300'}`}>
-      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl shadow-2xl">
-        <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full h-fit md:h-full md:max-w-lg">
-          <Box fit className="hidden md:block">
-            <div className="flex flex-row justify-between content-center gap-x-32">
-              <p className="font-serif text-xl text-black dark:text-white">EQUATIONEER</p>
-              <button
-                type="button"
-                onClick={() => {
-                  setDarkMode(!darkMode);
-                }}
-              >
-                {darkMode ? (
-                  <Sun size={24} color="gold" />
-                ) : (
-                  <Moon size={24} color="mediumslateblue" />
-                )}
-              </button>
-            </div>
-          </Box>
-          <Box fit>
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Title</div>
-              <div className="flex flex-row justify-between content-center gap-2">
-                <FileCog size={24} color="dodgerblue" />
-                <Settings size={24} className="block md:hidden" />
+    <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-pan-down ${darkMode ? 'dark bg-neutral-950' : 'bg-slate-300'}`}>
+      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl md:shadow-2xl">
+        <div className="flex flex-col justify-end md:justify-between gap-y-4 w-full md:h-full md:max-w-lg">
+          <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
+
+            <Box fit className="hidden md:block">
+              <div className="flex flex-row justify-between content-center gap-x-2">
+                <p className="font-serif text-xl text-black dark:text-yellow-400">EQUΛTIONEER</p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDarkMode(!darkMode);
+                  }}
+                >
+                  {darkMode ? (
+                    <Sun size={24} color="#facc15" />
+                  ) : (
+                    <Moon size={24} color="black" />
+                  )}
+                </button>
+              </div>
+            </Box>
+            <Collapsible
+              logo={<File size={24} />}
+              title="Files"
+              open={filesOpen}
+              setOpen={setFilesOpen}
+              buttons={[
+                <FileCog size={24} color="dodgerblue" />,
+                <Settings size={24} className="block md:hidden" />,
                 <button
                   className="block md:hidden"
                   type="button"
@@ -46,55 +55,55 @@ function App() {
                   ) : (
                     <Moon size={24} color="mediumslateblue" />
                   )}
-                </button>
-                <ChevronDown size={24} />
+                </button>,
+              ]}
+            >
+              <div className="pb-4">test</div>
+            </Collapsible>
+            <Collapsible
+              logo={<Command size={24} />}
+              title="Symbols"
+              open={symbolsOpen}
+              setOpen={setSymbolsOpen}
+              openClass="max-h-56 md:max-h-full"
+              commonClass="overflow-hidden"
+            >
+              <div className="h-full mt-2 overflow-y-auto scrollbar-none">
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
+                <div>Test</div>
               </div>
-
-            </div>
-          </Box>
-          <Box className="overflow-hidden max-h-56 md:max-h-full">
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Symbols</div>
-              <ChevronDown size={24} />
-            </div>
-            <div className="h-full mt-2 overflow-y-auto scrollbar-none">
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-              <div>Test</div>
-            </div>
-          </Box>
-          <Box className="h-fit md:h-full">
-            <div className="flex flex-row justify-between content-center">
-              <div className="text-black dark:text-white">Macros</div>
-              <ChevronDown size={24} />
-            </div>
-          </Box>
-          <Box fit className="hidden md:block">
-            <div className="flex flex-row justify-between gap-x-4">
-              <div className="flex flex-row content-center gap-x-2">
-                <User size={24} color="dodgerblue" />
-                <p>Not Logged In</p>
-              </div>
-
-              <Settings size={24} />
-            </div>
-          </Box>
+            </Collapsible>
+            <Collapsible
+              logo={<CurlyBraces size={24} />}
+              title="Macros"
+              open={macrosOpen}
+              setOpen={setMacrosOpen}
+            >
+              <div className="pb-4">macro</div>
+            </Collapsible>
+          </div>
+          <Collapsible
+            logo={<User size={24} color="dodgerblue" />}
+            title="User"
+            open={settingsOpen}
+            setOpen={setSettingsOpen}
+            openClass="h-fit"
+            commonClass="hidden md:flex"
+            openAbove
+            openSymbols={[
+              <Settings size={24} className="rotate-90" />,
+              <Settings size={24} />,
+            ]}
+          >
+            <div className="pt-4">Settings</div>
+          </Collapsible>
         </div>
         <div className="overflow-hidden rounded-lg">
-          <div className="h-full font-serif overflow-y-auto md:scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
+          <div className="h-full font-serif overflow-y-auto scrollbar-none md:scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
             <div className="h-full flex flex-col items-center gap-y-4">
               <Box fit className="flex flex-col items-center">
                 <h1 className="text-3xl text-black dark:text-white">Title</h1>
@@ -116,8 +125,8 @@ function App() {
               <Box fit>
                 <p>Vivamus feugiat id diam sit amet vulputate. Duis non lacinia sapien. Nunc porttitor luctus fringilla. Sed sit amet vestibulum nibh, et hendrerit odio. Aenean eu sollicitudin purus. Ut vitae magna et leo porttitor efficitur. Vivamus efficitur mi arcu, vel consequat elit rhoncus vitae. Etiam et erat enim. Suspendisse potenti.</p>
               </Box>
-              <Box>
-                <textarea placeholder="Write Here..." className="text-neutral-400 w-full h-full bg-white dark:bg-neutral-800 focus:outline-none" />
+              <Box fit>
+                <textarea placeholder="Write Here..." className="text-neutral-400 w-full h-fit bg-white dark:bg-neutral-800 focus:outline-none" />
               </Box>
             </div>
           </div>

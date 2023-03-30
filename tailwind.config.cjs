@@ -146,7 +146,10 @@ module.exports = {
       },
       gray: colors.gray,
       zinc: colors.zinc,
-      neutral: colors.neutral,
+      neutral: {
+        ...colors.neutral,
+        950: '#0a0a0a',
+      },
       stone: colors.stone,
       red: colors.red,
       orange: colors.orange,
@@ -764,6 +767,7 @@ module.exports = {
       125: '1.25',
       150: '1.5',
     },
+    // Remember to update used screens to hooks/useBrakpoint
     screens: {
       sm: '640px',
       md: '768px',
