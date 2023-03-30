@@ -17,7 +17,7 @@ function KaTeXBox() {
           }}
           className="text-neutral-400 w-full h-fit bg-white dark:bg-neutral-800 focus:outline-none"
         />
-        <div className="w-fit scale-150" dangerouslySetInnerHTML={{ __html: katex.renderToString(math ?? '', { throwOnError: false }) }} />
+        <div className="w-fit h-fit py-4 scale-100" dangerouslySetInnerHTML={{ __html: katex.renderToString(math ?? '', { throwOnError: false }) }} />
       </div>
     </Box>
   );
