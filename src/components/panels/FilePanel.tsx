@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Sun, Moon, Settings, FileCog, File,
 } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type FilePanelProps = {
   filesOpen: boolean;

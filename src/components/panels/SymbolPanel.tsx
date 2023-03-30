@@ -1,6 +1,6 @@
 import React from 'react';
 import { Command } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type SymbolPanelProps = {
   symbolsOpen: boolean;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Moon, Sun } from 'lucide-react';
-import Box from './Box';
+import Box from '../common/Box';
 
 type LogoPanelProps = {
   darkMode: boolean;

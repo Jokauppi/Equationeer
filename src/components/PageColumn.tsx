@@ -1,5 +1,5 @@
 import React from 'react';
-import Box from './Box';
+import Box from './common/Box';
 
 function PageColumn() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { CurlyBraces } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type MacroPanelProps = {
   macrosOpen: boolean;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Settings, User } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type SettingsPanelProps = {
   settingsOpen: boolean;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import FilePanel from './FilePanel';
-import LogoPanel from './LogoPanel';
-import MacroPanel from './MacroPanel';
-import SettingsPanel from './SettingsPanel';
-import SymbolPanel from './SymbolPanel';
+import FilePanel from './panels/FilePanel';
+import LogoPanel from './panels/LogoPanel';
+import MacroPanel from './panels/MacroPanel';
+import SettingsPanel from './panels/SettingsPanel';
+import SymbolPanel from './panels/SymbolPanel';
 
 type ActionColumnProps = {
   darkMode: boolean;
