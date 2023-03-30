@@ -767,6 +767,7 @@ module.exports = {
       125: '1.25',
       150: '1.5',
     },
+    // Remember to update used screens to hooks/useBrakpoint
     screens: {
       sm: '640px',
       md: '768px',
