@@ -31,3 +31,15 @@ body {
 .dhscreen {
   height: 100dvh;
 }
+
+.katex-display { 
+  overflow: auto hidden;
+  scrollbar-width: thin !important;
+}
+
+.katex-display > .katex {
+  scrollbar-width: thin !important;
+}
+.katex-display > .base {
+  scrollbar-width: thin !important;
+}

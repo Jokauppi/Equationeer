@@ -11,7 +11,10 @@ function LogoPanel({ darkMode, setDarkMode }: LogoPanelProps) {
   return (
     <Box fit className="hidden md:block">
       <div className="flex flex-row justify-between content-center gap-x-2">
-        <p className="font-serif text-xl text-black dark:text-yellow-400">EQUΛTIONEER</p>
+        <p className="font-serif text-xl text-black dark:text-yellow-400">
+          EQUΛTIONEER
+          <sup className="text-blue-500 dark:text-neutral-300 text-md font-mono">Dev</sup>
+        </p>
         <button
           type="button"
           onClick={() => {

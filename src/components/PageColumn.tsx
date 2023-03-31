@@ -11,7 +11,8 @@ function PageColumn() {
             <h1 className="text-3xl text-black dark:text-white">Title</h1>
             <p>Author</p>
           </Box>
-          <KaTeXBox />
+          <KaTeXBox type="text" />
+          <KaTeXBox type="math" />
         </div>
       </div>
     </div>

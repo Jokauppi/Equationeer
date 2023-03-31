@@ -3,14 +3,20 @@ import katex from 'katex';
 import 'katex/dist/katex.min.css';
 import Box from './common/Box';
 
-function KaTeXBox() {
+type KaTeXBoxProps = {
+  type: 'text' | 'math';
+};
+
+function KaTeXBox(
+  { type }: KaTeXBoxProps,
+) {
   const [math, setMath] = useState<string | undefined>(undefined);
 
   return (
     <Box fit>
-      <div className="flex flex-col h-full justify-start items-center gap-x-2 overflow-hidden">
+      <div className="flex flex-col h-full justify-start items-center gap-y-4 overflow-hidden">
         <textarea
-          placeholder="LaTeX..."
+          placeholder={type === 'text' ? 'LaTeX Textmode...' : 'LaTeX Mathmode...'}
           value={math}
           onChange={(event) => {
             setMath(event.target.value);
@@ -18,19 +24,27 @@ function KaTeXBox() {
           className="box-border text-neutral-400 w-full bg-white dark:bg-neutral-800 focus:outline-none"
         />
         <div
-          className="w-full h-fit py-4"
+          className="w-full h-fit"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={
-            {
-              __html: katex.renderToString(String.raw`\text{${math?.replaceAll(/(?<=[a-z]|[,-.]) +(?=[a-z]|[,-.])/gi, '}\\allowbreak\\text{\\space ')}}` ?? '', {
+            type === 'text' ? {
+              __html: katex.renderToString(String.raw`\text{${math?.replaceAll(/(?<=[a-z]|[,-.]) +(?=[a-z]|[,-.])/gi, '}\\allowbreak\\text{ ')}}` ?? '', {
                 throwOnError: false,
                 displayMode: false,
               }),
             }
+              : {
+                __html: katex.renderToString(String.raw`${math}` ?? '', {
+                  throwOnError: false,
+                  displayMode: true,
+                }),
+              }
           }
         />
-        <div>
-          {String.raw`\text{${math?.replaceAll(/(?<=[a-z]|[,-.]) +(?=[a-z]|[,-.])/gi, '}\\allowbreak\\text{ ')}}`}
+        <div className="w-full text-stone-600">
+          {type === 'text'
+            ? String.raw`LaTeX Source: ${math?.replaceAll(/(?<=[a-z]|[,-.]) +(?=[a-z]|[,-.])/gi, '}\\allowbreak\\text{ ')}}`
+            : String.raw`LaTeX Source: ${math}`}
         </div>
       </div>
     </Box>
