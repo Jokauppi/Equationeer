@@ -2,11 +2,11 @@
 
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{html,js,ts,jsx,tsx}"
+    './index.html',
+    './src/**/*.{html,js,ts,jsx,tsx}',
   ],
   presets: [],
-  darkMode: 'class', // or 'class'
+  darkMode: 'class',
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),
@@ -329,7 +329,7 @@ module.exports = {
         'ui-serif',
         'Georgia',
         '"Times New Roman"',
-        'serif'
+        'serif',
       ],
       mono: [
         'JetBrains Mono',
@@ -982,6 +982,6 @@ module.exports = {
     require('tailwind-scrollbar'),
   ],
   variants: {
-    scrollbar: ['rounded']
-  }
-}
+    scrollbar: ['rounded'],
+  },
+};

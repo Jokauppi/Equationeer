@@ -19,13 +19,15 @@ body {
   display: flex;
   place-items: center;
   width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
   background-color: #171717;
 }
 
 #root {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
+  max-height: 100dvh;
 }
 
 .dhscreen {
@@ -34,12 +36,4 @@ body {
 
 .katex-display { 
   overflow: auto hidden;
-  scrollbar-width: thin !important;
-}
-
-.katex-display > .katex {
-  scrollbar-width: thin !important;
-}
-.katex-display > .base {
-  scrollbar-width: thin !important;
 }

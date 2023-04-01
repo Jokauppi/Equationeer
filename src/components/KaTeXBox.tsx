@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import katex from 'katex';
+import katex, { KatexOptions } from 'katex';
 import 'katex/dist/katex.min.css';
 import Box from './common/Box';
 
@@ -21,21 +21,18 @@ const inputPreprocessors : {
   display: (input: string) => input,
 };
 
+const renderKaTeX = (input: string, options?: KatexOptions) => katex.renderToString(String.raw`${input}`, {
+  throwOnError: false,
+  output: 'html',
+  ...options,
+});
+
 const inputRenderers: {
   [key in KaTeXBoxProps['type']]: (input: string) => string;
 } = {
-  text: (input: string) => katex.renderToString(String.raw`\text{${inputPreprocessors.text(input)}}`, {
-    throwOnError: false,
-    displayMode: false,
-  }),
-  inline: (input: string) => katex.renderToString(String.raw`${inputPreprocessors.inline(input)}`, {
-    throwOnError: false,
-    displayMode: false,
-  }),
-  display: (input: string) => katex.renderToString(String.raw`${inputPreprocessors.display(input)}`, {
-    throwOnError: false,
-    displayMode: true,
-  }),
+  text: (input: string) => renderKaTeX(inputPreprocessors.text(`\\text{${input}}`), { displayMode: false }),
+  inline: (input: string) => renderKaTeX(inputPreprocessors.inline(input), { displayMode: false }),
+  display: (input: string) => renderKaTeX(inputPreprocessors.display(input), { displayMode: true }),
 };
 
 function KaTeXBox(
