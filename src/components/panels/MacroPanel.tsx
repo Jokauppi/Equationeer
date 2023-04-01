@@ -15,7 +15,7 @@ function MacroPanel({ macrosOpen, setMacrosOpen }: MacroPanelProps) {
       open={macrosOpen}
       setOpen={setMacrosOpen}
     >
-      <div className="pb-4">macro</div>
+      <div className="p-4">macro</div>
     </Collapsible>
   );
 }

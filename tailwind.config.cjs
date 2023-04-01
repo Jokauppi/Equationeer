@@ -149,6 +149,7 @@ module.exports = {
       neutral: {
         ...colors.neutral,
         950: '#0a0a0a',
+        850: '#1f1f1f',
       },
       stone: colors.stone,
       red: colors.red,

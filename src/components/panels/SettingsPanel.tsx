@@ -14,15 +14,15 @@ function SettingsPanel({ settingsOpen, setSettingsOpen }: SettingsPanelProps) {
       title="User"
       open={settingsOpen}
       setOpen={setSettingsOpen}
-      openClass="h-fit"
-      commonClass="hidden md:flex"
+      openClass="h-fit shrink-0"
+      commonClass="hidden md:flex flex-grow"
       openAbove
       openSymbols={[
         <Settings size={24} className="rotate-90" />,
         <Settings size={24} />,
       ]}
     >
-      <div className="pt-4">Settings</div>
+      <div className="p-4">Settings</div>
     </Collapsible>
   );
 }

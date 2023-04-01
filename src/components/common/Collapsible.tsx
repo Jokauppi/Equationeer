@@ -30,41 +30,54 @@ function Collapsible({
   openAbove = false,
   openSymbols = [<ChevronUp size={24} />, <ChevronDown size={24} />],
 }: CollapsibleProps) {
-  const openClassName = `h-full ${openClass}`;
-  const closedClassName = `h-fit shrink-0 ${closedClass}`;
+  const openClassName = `h-full ${openClass ?? ''}`;
+  const closedClassName = `h-fit shrink-0 ${closedClass ?? ''}`;
 
   return (
-    <Box className={twMerge(`flex ${openAbove ? 'flex-col-reverse' : 'flex-col'} p-0 ${commonClass} ${open ? openClassName : closedClassName}`)}>
-      <button
-        type="button"
-        onClick={() => {
-          setOpen(!open);
-        }}
+    <Box className={twMerge(`flex rounded-xl overflow-hidden bg-slate-100 dark:bg-neutral-850 ${openAbove ? 'flex-col-reverse' : 'flex-col'} p-0 ${commonClass ?? ''} ${open ? openClassName : closedClassName}`)}>
+      <div
+        className="z-20 flex flex-row shrink-0 justify-between content-center bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-md"
       >
-        <div className="flex flex-row justify-between content-center p-4">
-          <div className="flex flex-row justify-start content-center gap-x-3">
+        <button
+          className={`w-full p-4 pr-0 ${buttons && 'mr-4'}`}
+          type="button"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          <div className="w-full flex flex-row justify-start content-center gap-x-3">
             {logo}
             <div className="text-black dark:text-white font-medium">
               {title}
             </div>
           </div>
-          <div className="flex flex-row justify-end content-center gap-x-2">
-            {/*
+        </button>
+        <div className="flex flex-row justify-end content-center gap-x-4">
+          {/*
               eslint-disable
               jsx-a11y/click-events-have-key-events,
               jsx-a11y/no-static-element-interactions
             */}
-            <div
-              className="flex flex-row justify-end content-center gap-x-2"
-              onClick={(e) => { e.stopPropagation(); }}
-            >
-              {buttons}
-            </div>
-            {open ? openSymbols[0] : openSymbols[1]}
+          <div
+            className="py-4 flex flex-row justify-end content-center gap-x-4"
+            onClick={(e) => { e.stopPropagation(); }}
+          >
+            {buttons}
           </div>
+          <button
+            className="pr-4"
+            type="button"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            {open ? openSymbols[0] : openSymbols[1]}
+          </button>
         </div>
-      </button>
-      <div className={`px-4 overflow-hidden ${!open ? 'hidden' : ''}`}>
+      </div>
+      <div
+        className={`h-full overflow-hidden ${!open ? 'hidden' : ''}`}
+      >
         {children}
       </div>
     </Box>

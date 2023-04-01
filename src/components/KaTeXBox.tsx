@@ -52,7 +52,7 @@ function KaTeXBox(
           className="box-border text-neutral-400 w-full bg-white dark:bg-neutral-800 focus:outline-none"
         />
         <div
-          className="w-full h-fit"
+          className="w-full h-fit scrollbar-thin"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={
             { __html: inputRenderers[type](math ?? '') }

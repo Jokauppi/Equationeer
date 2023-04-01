@@ -34,6 +34,6 @@ body {
   height: 100dvh;
 }
 
-.katex-display { 
+div:has(> .katex-display) { 
   overflow: auto hidden;
 }

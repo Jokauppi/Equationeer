@@ -17,31 +17,37 @@ function ActionColumn({ darkMode, setDarkMode }: ActionColumnProps) {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-end md:justify-between gap-y-4 w-full md:h-full md:max-w-lg">
-      <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
-        <LogoPanel
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
-        <FilePanel
-          filesOpen={filesOpen}
-          setFilesOpen={setFilesOpen}
-          darkMode={darkMode}
-          setDarkMode={setDarkMode}
-        />
-        <SymbolPanel
-          symbolsOpen={symbolsOpen}
-          setSymbolsOpen={setSymbolsOpen}
-        />
-        <MacroPanel
-          macrosOpen={macrosOpen}
-          setMacrosOpen={setMacrosOpen}
-        />
+    <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
+      <div className="flex flex-col justify-end md:justify-between w-full md:h-full md:max-w-lg">
+        <div className="p-4 pb-0">
+          <LogoPanel
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        </div>
+        <div className="flex flex-col max-h-full h-full justify-start p-4 gap-y-4 overflow-y-hidden">
+          <FilePanel
+            filesOpen={filesOpen}
+            setFilesOpen={setFilesOpen}
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+          <SymbolPanel
+            symbolsOpen={symbolsOpen}
+            setSymbolsOpen={setSymbolsOpen}
+          />
+          <MacroPanel
+            macrosOpen={macrosOpen}
+            setMacrosOpen={setMacrosOpen}
+          />
+        </div>
+        <div className="p-4 pt-0">
+          <SettingsPanel
+            settingsOpen={settingsOpen}
+            setSettingsOpen={setSettingsOpen}
+          />
+        </div>
       </div>
-      <SettingsPanel
-        settingsOpen={settingsOpen}
-        setSettingsOpen={setSettingsOpen}
-      />
     </div>
   );
 }

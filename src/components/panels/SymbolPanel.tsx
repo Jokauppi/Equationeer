@@ -17,13 +17,8 @@ function SymbolPanel({ symbolsOpen, setSymbolsOpen }: SymbolPanelProps) {
       openClass="max-h-56 md:max-h-full"
       commonClass="overflow-hidden"
     >
-      <div className="h-full mt-2 overflow-y-auto scrollbar-none">
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
+      <div className="p-4">
+        <div>Symbol</div>
       </div>
     </Collapsible>
   );

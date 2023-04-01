@@ -22,7 +22,7 @@ function FilePanel({
       setOpen={setFilesOpen}
       buttons={[
         <FileCog size={24} color="dodgerblue" />,
-        <Settings size={24} className="block md:hidden" />,
+        <Settings size={24} className="md:hidden" />,
         <button
           className="block md:hidden"
           type="button"
@@ -38,7 +38,24 @@ function FilePanel({
         </button>,
       ]}
     >
-      <div className="pb-4">test</div>
+      <div
+        className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent"
+      >
+        <div className="flex flex-col space-y-4 p-4 z-30">
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        </div>
+      </div>
     </Collapsible>
   );
 }

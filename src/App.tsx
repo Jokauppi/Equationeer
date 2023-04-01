@@ -7,7 +7,7 @@ function App() {
 
   return (
     <div className={`App flex flex-row justify-center w-screen dhscreen font-sans text-black touch-pan-y ${darkMode ? 'dark bg-neutral-950' : 'bg-slate-300'}`}>
-      <div className="flex flex-col-reverse md:flex-row justify-between gap-y-4 md:gap-x-4 p-4 w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl md:shadow-2xl">
+      <div className="flex flex-col-reverse md:flex-row justify-between w-full h-full bg-slate-150 dark:bg-neutral-900 3xl:max-w-screen-3xl md:shadow-2xl">
         <ActionColumn darkMode={darkMode} setDarkMode={setDarkMode} />
         <PageColumn />
       </div>
