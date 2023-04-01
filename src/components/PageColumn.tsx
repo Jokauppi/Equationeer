@@ -12,7 +12,8 @@ function PageColumn() {
             <p>Author</p>
           </Box>
           <KaTeXBox type="text" />
-          <KaTeXBox type="math" />
+          <KaTeXBox type="inline" />
+          <KaTeXBox type="display" />
         </div>
       </div>
     </div>
