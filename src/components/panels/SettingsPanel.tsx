@@ -15,7 +15,6 @@ function SettingsPanel({ settingsOpen, setSettingsOpen }: SettingsPanelProps) {
       open={settingsOpen}
       setOpen={setSettingsOpen}
       openClass="h-fit shrink-0"
-      commonClass="hidden md:flex flex-grow"
       openAbove
       openSymbols={[
         <Settings size={24} className="rotate-90" />,

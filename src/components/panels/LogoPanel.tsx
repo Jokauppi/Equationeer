@@ -9,7 +9,7 @@ type LogoPanelProps = {
 
 function LogoPanel({ darkMode, setDarkMode }: LogoPanelProps) {
   return (
-    <Box fit className="hidden md:flex">
+    <Box fit>
       <div className="w-full flex flex-row justify-between content-center gap-x-2">
         <p className="font-serif text-xl text-black dark:text-yellow-400">
           EQUΛTIONEER
