@@ -38,24 +38,21 @@ function FilePanel({
         </button>,
       ]}
     >
-      <div
-        className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent"
-      >
-        <div className="flex flex-col space-y-4 p-4 z-30">
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-          <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        </div>
+      <div className="flex flex-col space-y-4 p-4 z-30">
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
+        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
       </div>
+
     </Collapsible>
   );
 }

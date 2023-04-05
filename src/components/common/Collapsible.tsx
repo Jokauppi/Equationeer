@@ -34,7 +34,7 @@ function Collapsible({
   const closedClassName = `h-fit shrink-0 ${closedClass ?? ''}`;
 
   return (
-    <Box className={twMerge(`flex rounded-xl overflow-hidden bg-slate-100 dark:bg-neutral-850 ${openAbove ? 'flex-col-reverse' : 'flex-col'} p-0 ${commonClass ?? ''} ${open ? openClassName : closedClassName}`)}>
+    <Box className={twMerge(`h-full flex rounded-xl overflow-hidden bg-slate-100 dark:bg-neutral-850 ${openAbove ? 'flex-col-reverse' : 'flex-col'} p-0 ${commonClass ?? ''} ${open ? openClassName : closedClassName}`)}>
       <div
         className="z-20 flex flex-row shrink-0 justify-between content-center bg-white dark:bg-neutral-800 rounded-xl overflow-hidden shadow-md"
       >
@@ -78,7 +78,9 @@ function Collapsible({
       <div
         className={`h-full overflow-hidden ${!open ? 'hidden' : ''}`}
       >
-        {children}
+        <div className="h-full overflow-y-auto scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-neutral-700 scrollbar-track-transparent">
+          {children}
+        </div>
       </div>
     </Box>
   );

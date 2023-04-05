@@ -17,14 +17,14 @@ function ActionColumn({ darkMode, setDarkMode }: ActionColumnProps) {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-end md:justify-between md:justify-start w-full h- md:h-full md:max-w-lg overflow-hidden">
-      <div className="p-4 pb-0 hidden md:flex">
+    <div className="flex flex-col justify-end w-full h-fit md:h-full md:max-w-lg overflow-hidden">
+      <div className="p-4 md:pr-2 pb-0 hidden md:flex">
         <LogoPanel
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
       </div>
-      <div className="flex flex-col max-h-full h-full justify-end p-4 gap-y-4 overflow-hidden">
+      <div className="flex flex-col h-full justify-start p-4 md:pr-2 gap-y-4 overflow-hidden">
         <FilePanel
           filesOpen={filesOpen}
           setFilesOpen={setFilesOpen}
@@ -40,7 +40,7 @@ function ActionColumn({ darkMode, setDarkMode }: ActionColumnProps) {
           setMacrosOpen={setMacrosOpen}
         />
       </div>
-      <div className="p-4 pt-0 hidden md:flex">
+      <div className="p-4 md:pr-2 pt-0 hidden md:flex">
         <SettingsPanel
           settingsOpen={settingsOpen}
           setSettingsOpen={setSettingsOpen}
