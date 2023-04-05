@@ -1,6 +1,6 @@
 import React from 'react';
 import { Settings, User } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type SettingsPanelProps = {
   settingsOpen: boolean;
@@ -14,15 +14,14 @@ function SettingsPanel({ settingsOpen, setSettingsOpen }: SettingsPanelProps) {
       title="User"
       open={settingsOpen}
       setOpen={setSettingsOpen}
-      openClass="h-fit"
-      commonClass="hidden md:flex"
+      openClass="h-fit shrink-0"
       openAbove
       openSymbols={[
         <Settings size={24} className="rotate-90" />,
         <Settings size={24} />,
       ]}
     >
-      <div className="pt-4">Settings</div>
+      <div className="p-4">Settings</div>
     </Collapsible>
   );
 }

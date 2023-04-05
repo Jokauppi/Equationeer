@@ -2,11 +2,11 @@
 
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{html,js,ts,jsx,tsx}"
+    './index.html',
+    './src/**/*.{html,js,ts,jsx,tsx}',
   ],
   presets: [],
-  darkMode: 'class', // or 'class'
+  darkMode: 'class',
   theme: {
     accentColor: ({ theme }) => ({
       ...theme('colors'),
@@ -149,6 +149,7 @@ module.exports = {
       neutral: {
         ...colors.neutral,
         950: '#0a0a0a',
+        850: '#1f1f1f',
       },
       stone: colors.stone,
       red: colors.red,
@@ -329,7 +330,7 @@ module.exports = {
         'ui-serif',
         'Georgia',
         '"Times New Roman"',
-        'serif'
+        'serif',
       ],
       mono: [
         'JetBrains Mono',
@@ -982,6 +983,6 @@ module.exports = {
     require('tailwind-scrollbar'),
   ],
   variants: {
-    scrollbar: ['rounded']
-  }
-}
+    scrollbar: ['rounded'],
+  },
+};

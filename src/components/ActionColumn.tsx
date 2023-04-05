@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import FilePanel from './FilePanel';
-import LogoPanel from './LogoPanel';
-import MacroPanel from './MacroPanel';
-import SettingsPanel from './SettingsPanel';
-import SymbolPanel from './SymbolPanel';
+import FilePanel from './panels/FilePanel';
+import LogoPanel from './panels/LogoPanel';
+import MacroPanel from './panels/MacroPanel';
+import SettingsPanel from './panels/SettingsPanel';
+import SymbolPanel from './panels/SymbolPanel';
 
 type ActionColumnProps = {
   darkMode: boolean;
@@ -17,12 +17,14 @@ function ActionColumn({ darkMode, setDarkMode }: ActionColumnProps) {
   const [settingsOpen, setSettingsOpen] = useState(false);
 
   return (
-    <div className="flex flex-col justify-end md:justify-between gap-y-4 w-full md:h-full md:max-w-lg">
-      <div className="flex flex-col justify-end md:justify-start gap-y-4 w-full md:h-full md:max-w-lg">
+    <div className="flex flex-col justify-end w-full h-fit md:h-full md:max-w-lg overflow-hidden">
+      <div className="p-4 md:pr-2 pb-0 hidden md:flex">
         <LogoPanel
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
+      </div>
+      <div className="flex flex-col h-full justify-start p-4 md:pr-2 gap-y-4 overflow-hidden">
         <FilePanel
           filesOpen={filesOpen}
           setFilesOpen={setFilesOpen}
@@ -38,10 +40,12 @@ function ActionColumn({ darkMode, setDarkMode }: ActionColumnProps) {
           setMacrosOpen={setMacrosOpen}
         />
       </div>
-      <SettingsPanel
-        settingsOpen={settingsOpen}
-        setSettingsOpen={setSettingsOpen}
-      />
+      <div className="p-4 md:pr-2 pt-0 hidden md:flex">
+        <SettingsPanel
+          settingsOpen={settingsOpen}
+          setSettingsOpen={setSettingsOpen}
+        />
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Command } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type SymbolPanelProps = {
   symbolsOpen: boolean;
@@ -14,16 +14,15 @@ function SymbolPanel({ symbolsOpen, setSymbolsOpen }: SymbolPanelProps) {
       title="Symbols"
       open={symbolsOpen}
       setOpen={setSymbolsOpen}
-      openClass="max-h-56 md:max-h-full"
       commonClass="overflow-hidden"
     >
-      <div className="h-full mt-2 overflow-y-auto scrollbar-none">
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
-        <div>Test</div>
+      <div className="p-4 grid grid-cols-6">
+        <div>Sym</div>
+        <div>Sym</div>
+        <div>Sym</div>
+        <div>Sym</div>
+        <div>Sym</div>
+        <div>Sym</div>
       </div>
     </Collapsible>
   );

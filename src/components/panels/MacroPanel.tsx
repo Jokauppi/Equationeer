@@ -1,6 +1,6 @@
 import React from 'react';
 import { CurlyBraces } from 'lucide-react';
-import Collapsible from './Collapsible';
+import Collapsible from '../common/Collapsible';
 
 type MacroPanelProps = {
   macrosOpen: boolean;
@@ -15,7 +15,14 @@ function MacroPanel({ macrosOpen, setMacrosOpen }: MacroPanelProps) {
       open={macrosOpen}
       setOpen={setMacrosOpen}
     >
-      <div className="pb-4">macro</div>
+      <div className="p-4 grid grid-cols-3">
+        <div>Macro</div>
+        <div>Macro</div>
+        <div>Macro</div>
+        <div>Macro</div>
+        <div>Macro</div>
+        <div>Macro</div>
+      </div>
     </Collapsible>
   );
 }
