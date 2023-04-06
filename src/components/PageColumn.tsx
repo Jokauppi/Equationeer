@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from './common/Box';
 import KaTeXBox from './KaTeXBox';
+import TextBox from './TextBox';
 
 function PageColumn() {
   return (
@@ -11,6 +12,7 @@ function PageColumn() {
             <h1 className="text-3xl text-black dark:text-white">Title</h1>
             <p>Author</p>
           </Box>
+          <TextBox />
           <KaTeXBox type="text" />
           <KaTeXBox type="inline" />
           <KaTeXBox type="display" />
