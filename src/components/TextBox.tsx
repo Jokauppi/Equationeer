@@ -6,43 +6,66 @@ import Box from './common/Box';
 // type TextBoxProps = {};
 
 const splitText = (input: string) => {
-  const split = input.split(/(?<!\\)(?:\$|\\\(|\\\)|\\\[\]|\\\[\])(?!\\)/);
-  const text = split.filter((_, i) => i % 2 === 0);
-  const math = split.filter((_, i) => i % 2 === 1);
-  return { text, math };
+  const chunks = input.match(/(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$.*?(?<!\\)\$|\\\(.*?\\\)|\\\[.*?\\\]|.*?(?=$|(?<!\\)\$|\\\(|\\\[)/gsu);
+  return chunks ? [...chunks] : [];
 };
 
-const removeMathLimiters = (math: string[]) => math.map((m) => {
-  if (m.startsWith('$$') && m.endsWith('$$')) {
-    return `\\displaystyle ${m.slice(2, -2)}`;
+const mapToMathObjects = (chunks: string[]) => chunks.map((chunk) => {
+  if (chunk.startsWith('$$') || chunk.startsWith('\\[')) {
+    return {
+      content: chunk.slice(2, -2),
+      displayMode: 'display',
+    };
+  } if (chunk.startsWith('\\(') && chunk.endsWith('\\)')) {
+    return {
+      content: chunk.slice(2, -2),
+      displayMode: 'inline',
+    };
+  } if (chunk.startsWith('$')) {
+    return {
+      content: chunk.slice(1, -1),
+      displayMode: 'inline',
+    };
   }
-  if (m.startsWith('$') && m.endsWith('$')) {
-    return m.slice(1, -1);
-  }
-  if (m.startsWith('\\(') && m.endsWith('\\)')) {
-    return m.slice(2, -2);
-  }
-  if (m.startsWith('\\[') && m.endsWith('\\]')) {
-    return `\\displaystyle ${m.slice(2, -2)}`;
-  }
-  return m;
+  return {
+    content: chunk,
+    displayMode: 'text',
+  };
 });
 
+/**
+ * Renders given latex string to html.
+ * @param input latex string
+ * @param options additional katex options
+ * @returns html string
+*/
 const renderKaTeX = (input: string, options?: KatexOptions) => katex.renderToString(String.raw`${input}`, {
   throwOnError: false,
   output: 'html',
   ...options,
 });
 
+/**
+ * Splits text and inline latex to an array and renders each element inside a span.
+ * @param input text as string with inline latex delimited by $, $$, \( and \) or \[ and \]
+ * @returns string with text and inline latex rendered inside spans
+ * @example
+ * ```js
+ * renderText('Hello $LaTeX$')
+ * // '<span>Hello </span><span>['LaTeX' in latex inline math]</span>'
+ * ```
+*/
 const renderText = (input: string) => {
-  const { text, math } = splitText(input);
-  const mathWithoutLimiters = removeMathLimiters(math);
+  const chunks = mapToMathObjects(splitText(input));
 
-  return text.map((t, i) => {
-    if (i >= mathWithoutLimiters.length) {
-      return `<span>${t}</span>`;
+  return chunks.map((chunk) => {
+    if (chunk.displayMode === 'text') {
+      return `<span>${chunk.content}</span>`;
     }
-    return `<span>${t}</span>${renderKaTeX(mathWithoutLimiters[i], { displayMode: false }) ?? ''}`;
+    if (chunk.displayMode === 'display') {
+      return `${renderKaTeX(chunk.content, { displayMode: true }) ?? ''}`;
+    }
+    return `${renderKaTeX(chunk.content, { displayMode: false }) ?? ''}`;
   }).join('');
 };
 

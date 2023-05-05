@@ -9,7 +9,7 @@ function PageColumn() {
       <div className="h-full font-serif">
         <div className="h-full flex flex-col items-center p-4 md:pl-2 gap-y-4">
           <Box fit className="flex flex-col items-center">
-            <h1 className="text-3xl text-black dark:text-white">Title</h1>
+            <h1 className="text-3xl text-black dark:text-white">WYSIWYG LaTeX</h1>
             <p>Author</p>
           </Box>
           <TextBox />
