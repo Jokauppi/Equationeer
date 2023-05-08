@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
 import 'katex/dist/katex.min.css';
 import katex, { KatexOptions } from 'katex';
+import { parse } from '@unified-latex/unified-latex-util-parse';
+import { toString } from '@unified-latex/unified-latex-util-to-string';
 import Box from './common/Box';
 
 // type TextBoxProps = {};
 
+/**
+ * Splits text with inline and display latex to an array by delimiters $$, $, \(, \) and \[ and \].
+ * while preserving delimiters.
+ * Escaped delimiters are ignored.
+ * @param input text as string with latex delimited by $, $$, \( and \) or \[ and \]
+ * @returns array of strings with latex or text
+ */
 const splitText = (input: string) => {
-  const chunks = input.match(/(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$.*?(?<!\\)\$|\\\(.*?\\\)|\\\[.*?\\\]|.*?(?=$|(?<!\\)\$|\\\(|\\\[)/gsu);
+  const chunks = input.match(/(?<!\\)\$\$.*?(?<!\\)\$\$|(?<!\\)\$.*?(?<!\\)\$|\\\(.*?\\\)|\\\[.*?\\\]|.+?(?=$|(?<!\\)\$|\\\(|\\\[)/gsu);
   return chunks ? [...chunks] : [];
 };
 
 const mapToMathObjects = (chunks: string[]) => chunks.map((chunk) => {
-  if (chunk.startsWith('$$') || chunk.startsWith('\\[')) {
+  if ((chunk.startsWith('$$') && chunk.length > 2) || chunk.startsWith('\\[')) {
     return {
       content: chunk.slice(2, -2),
       displayMode: 'display',
@@ -72,9 +81,12 @@ const renderText = (input: string) => {
 function TextBox() {
   const [text, setText] = useState<string | undefined>(undefined);
 
+  const LTXAST = parse(text || '');
+
   return (
     <Box fit>
-      <div className="flex flex-col h-full justify-start items-center gap-y-4 overflow-hidden">
+      <div className="flex flex-col h-full justify-start items-start gap-y-4 overflow-hidden">
+        <p>Input</p>
         <textarea
           placeholder="Text + Inline Latex..."
           value={text}
@@ -83,6 +95,10 @@ function TextBox() {
           }}
           className="box-border text-neutral-400 w-full bg-white dark:bg-neutral-800 focus:outline-none"
         />
+
+        <hr className="w-full h-px bg-slate-200 dark:bg-neutral-600 border-0" />
+
+        <p>Rendered</p>
         <div
           className="w-full h-fit scrollbar-thin"
           // eslint-disable-next-line react/no-danger
@@ -90,8 +106,28 @@ function TextBox() {
             { __html: renderText(text ?? '') }
           }
         />
+
+        <hr className="w-full h-px bg-slate-200 dark:bg-neutral-600 border-0" />
+
+        <p>Pretty printed</p>
         <div className="w-full text-stone-600">
-          {text ?? ''}
+          {toString(LTXAST)}
+        </div>
+
+        <hr className="w-full h-px bg-slate-200 dark:bg-neutral-600 border-0" />
+
+        <p>AST</p>
+        <div className="w-full text-stone-600">
+          <pre>
+            {JSON.stringify(LTXAST, null, 2)}
+          </pre>
+        </div>
+
+        <hr className="w-full h-px bg-slate-200 dark:bg-neutral-600 border-0" />
+
+        <p>Object array</p>
+        <div className="w-full text-stone-600">
+          {JSON.stringify(mapToMathObjects(splitText(text || '')))}
         </div>
       </div>
     </Box>
