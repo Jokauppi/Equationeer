@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Sun, Moon, Settings, FileCog, File,
+  Sun, Moon, Settings, FileCog, File, FilePlus2, FolderPlus, Save,
 } from 'lucide-react';
 import Collapsible from '../common/Collapsible';
 
@@ -21,6 +21,9 @@ function FilePanel({
       open={filesOpen}
       setOpen={setFilesOpen}
       buttons={[
+        <Save size={24} />,
+        <FolderPlus size={24} />,
+        <FilePlus2 size={24} />,
         <FileCog size={24} color="dodgerblue" />,
         <Settings size={24} className="md:hidden" />,
         <button
@@ -39,17 +42,6 @@ function FilePanel({
       ]}
     >
       <div className="flex flex-col space-y-4 p-4 z-30">
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
-        <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
         <div className="p-4 bg-white dark:bg-neutral-800 rounded-xl shadow-md">test</div>
       </div>
 
